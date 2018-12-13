@@ -1,0 +1,9 @@
+<div class = "popular-tags">
+    <h3>Popular Tags</h3>
+    <ul class="popular-tags-list">
+        {% for tag in tags %}
+            <li><a href="{{ tag.get_url }}">{{ tag.title }}</a></li>
+{#            <li><a href="{% url 'questions_by_tag' tag_title=tag.title %}">{{ tag.title }}</a></li>#}
+        {% endfor %}
+    </ul>
+</div>

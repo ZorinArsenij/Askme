@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/tagsinput.css' %}">
+    <link rel="stylesheet" href="{% static 'css/log_in.css' %}">
+{% endblock %}
+{% block title %}Add question{% endblock %}
+{% block content %}
+    <h3 class="pb-4">New Questions</h3>
+    <form class="question-form" method="post">
+        {% csrf_token %}
+        {% if form.errors %}
+            {% for error in form.errors.values %}
+                {% if forloop.first %}
+                    <p class="error active">{{ error|first }}</p>
+                {% endif %}
+            {% endfor %}
+        {%  endif %}
+        {% for field in form %}
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                <div class="col-md-8">
+                    {{ field }}
+                </div>
+            </div>
+        {%  endfor %}
+        <div class="form-group row">
+            <div class="col-md-8 offset-md-2">
+                <button type="submit" class="btn btn-primary add-question">Ask</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Hot questions{% endblock %}
+{% block content %}
+    <div class="question-categories">
+        <a class="selected" href="{% url 'top_questions' %}"><h5>Hot Questions</h5></a>
+        <a href="{% url 'new_questions' %}"><h5>New Questions</h5></a>
+    </div>
+    {% if top_questions %}
+{#        <div class="questions">#}
+{#            {% for question in top_questions %}#}
+{#                {% include "question.html" with question=question only %}#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#        {% include 'pagination.html' with content=top_questions only %}#}
+        {% include 'new_questions/question_list.html' with questions=top_questions only%}
+    {% else %}
+        <p>Ooops, there are no questions yet(</p>
+    {% endif %}
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'js/like.js' %}"></script>
+{% endblock %}

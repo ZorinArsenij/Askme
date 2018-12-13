@@ -1,0 +1,26 @@
+{% load static %}
+<div class="media col-md-7 offset-2 pl-4 pr-0 user">
+    {% if user_info %}
+        {% if user_info.avatar %}
+            <img class="align-self-center mr-3 img-fluid user-picture" src="{{ user_info.avatar.url }}">
+        {% else %}
+            <img class="align-self-center mr-3 img-fluid user-picture" src="{% static 'img/default_user_image.png'%}">
+        {% endif %}
+        <div class="media-body align-items-center">
+            <div>
+                <span class="user-name">{{ user_info.nickname }}</span>
+            </div>
+            <div>
+                <a href="{% url 'user_settings' %}">settings</a>
+                <a class="ml-3" href="{% url "log_out" %}?next={{ request.get_full_path }}">log out</a>
+            </div>
+        </div>
+    {% else %}
+        <div class="media-body align-items-center">
+            <div>
+                <a href="{% url 'log_in' %}">log in</a>
+                <a class="ml-3" href="{% url 'sign_up' %}">sign up</a>
+            </div>
+        </div>
+    {% endif %}
+</div>

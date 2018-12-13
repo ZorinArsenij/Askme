@@ -1,0 +1,316 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+header .navbar {
+  height: 64px;
+}
+
+.navbar-brand {
+  margin-right: 0;
+}
+
+li {
+  list-style: none;
+}
+
+html {
+  position: relative;
+
+  min-height: 100%;
+}
+
+html::-webkit-scrollbar { width: 0; }
+
+/* ie 10+ */
+html { -ms-overflow-style: none; }
+
+/* фф (свойство больше не работает, других способов тоже нет)*/
+html { overflow: -moz-scrollbars-none; }
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+a:hover {
+  text-decoration: none;
+}
+
+body > .container {
+  padding: 80px 15px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.question_item img {
+  width: 50px;
+  height: 50px;
+}
+
+.user-picture {
+  max-width: 48px;
+  width: 100%;
+}
+
+.search-btn {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-color: rgb(206, 212, 218);
+  background-color: white;
+}
+
+.search-input {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.ask-btn {
+  text-align: right;
+}
+
+.width-10.search-btn{
+  width: 8%;
+  border-right: none;
+}
+
+.width-90.search-input {
+  width: 92%;
+}
+
+.user-name {
+  color: white;
+}
+
+.user a {
+  color: #6c757d;
+}
+
+.user a:hover {
+  color: white;
+}
+
+.btn-outline-success {
+  color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-outline-success:hover {
+  color: white;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-outline-success:not(:disabled):not(.disabled).active, .btn-outline-success:not(:disabled):not(.disabled):active, .show>.btn-outline-success.dropdown-toggle {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-outline-success:not(:disabled):not(.disabled).active:focus, .btn-outline-success:not(:disabled):not(.disabled):active:focus, .show>.btn-outline-success.dropdown-toggle:focus {
+  box-shadow: none;
+}
+
+.btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .show>.btn-outline-secondary.dropdown-toggle:focus {
+  box-shadow: none;
+}
+
+
+.btn-outline-success:focus {
+  box-shadow: none;
+}
+
+.btn-outline-secondary.btn:focus {
+  box-shadow: none;
+}
+
+button {
+  height: 2.5rem;
+}
+
+.btn-outline-secondary {
+  height: 2.5rem;
+}
+
+input.search-input {
+  height: 2.5rem;
+}
+
+input.search-input:focus {
+  outline: none;
+  border-color: #ced4da;
+  box-shadow: none;
+}
+
+.question-item {
+  padding: 1.5rem 1rem 2rem;
+  border: 1px solid #6c757d;
+  border-radius: 0.25rem;
+}
+
+.question-item img{
+  width: 5rem;
+  height: 5rem;
+}
+
+.question-item .align-self-start img, .incremental-input {
+  display: block;
+}
+
+.question-item .incremental-input {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.question-item input {
+  display: inline-block;
+  vertical-align: top;
+  width: 2.5rem;
+}
+
+.question-item h5 {
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 8px;
+}
+
+.popular-tags-list li {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.question-categories {
+  margin-bottom: 1.5rem;
+}
+
+.question-categories a h5{
+  display: inline-block;
+  vertical-align: center;
+  margin-right: 1rem;
+  color: #6c757d;
+}
+
+.question-categories a.selected h5{
+  font-size: 1.75rem;
+  color: black;
+}
+
+.question-categories a:hover h5{
+  font-size: 1.75rem;
+  color: black;
+  transition: 0.5s;
+}
+
+.page-link {
+  color: #6c757d;
+}
+
+.page-item.active .page-link {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: white;
+}
+
+.page-item .page-link:hover {
+  color: #6c757d;
+  box-shadow: none;
+}
+
+.page-item.active .page-link:hover {
+  color: white;
+}
+
+.page-item.active .page-link:focus {
+  color: white;
+  box-shadow: none;
+}
+
+.page-item .page-link:focus {
+  color: #6c757d;
+  box-shadow: none;
+}
+
+/*.bootstrap-tagsinput {*/
+  /*background-color: #fff;*/
+  /*background-clip: padding-box;*/
+  /*border: 1px solid #ced4da;*/
+  /*height: calc(2.25rem + 2px);*/
+  /*padding: .375rem .75rem;*/
+  /*font-size: 1rem;*/
+  /*box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);*/
+  /*display: inline-block;*/
+  /*color: #495057;*/
+  /*vertical-align: middle;*/
+  /*border-radius: 0.25rem;*/
+  /*width: 100%;*/
+  /*line-height: 1.5;*/
+  /*cursor: text;*/
+  /*transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;*/
+/*}*/
+
+.bootstrap-tagsinput {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.btn-primary {
+  background-color: white;
+  border-color: #6c757d;
+  color: #6c757d;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  box-shadow: none;
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: white;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus {
+  box-shadow: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+main {
+  margin-bottom: 5rem;
+}
+
+a {
+  color: #6c757d;
+}
+
+a:hover {
+  color: black;
+}
+
+.question-categories h5 {
+  margin-bottom: 0;
+}

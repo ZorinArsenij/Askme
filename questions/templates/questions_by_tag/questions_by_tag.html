@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Question by tag {{ tag_title }}{% endblock %}
+{% block content %}
+    <div class="question-categories">
+        <h3>Tag: {{ tag_title }}</h3>
+    </div>
+    {% if questions %}
+        {% include 'new_questions/question_list.html' with questions=questions only %}
+    {% else %}
+        <p>Ooops, there are no questions with this tag yet(</p>
+    {% endif %}
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'js/like.js' %}"></script>
+{% endblock %}

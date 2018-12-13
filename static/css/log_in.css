@@ -1,0 +1,15 @@
+.error.active {
+    color: red;
+    transition: 1s;
+    margin-bottom: 1rem;
+}
+
+.error.disabled {
+    visibility: hidden;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin: 0;
+}

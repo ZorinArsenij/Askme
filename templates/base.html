@@ -1,0 +1,66 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/askme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome-4.7.0 2/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/likes.css' %}">
+    {%  block styles %}{% endblock %}
+      <title>{% block title %}{% endblock %}</title>
+  </head>
+   <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand col-md-1" href="{% url 'new_questions' %}">Ask</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse col-md-6 search-container" id="navbarCollapse">
+          <form class="form-inline mt-2 mt-md-0 col-md-12">
+            <button class="btn btn-outline-secondary search-btn width-10" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+            <input type="text" class="form-control search-input width-90" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+          </form>
+        </div>
+          <div class="col-md-0 mr-3 pr-0 ask-btn">
+                <a class="btn btn-outline-success my-2 my-sm-0 ml" href="{% url 'add_question' %}">ASK!</a>
+            </div>
+        <div class="col-md-4">
+         <div class="row align-items-center">
+{#            <div class="col-md-3 offset-md-1 pr-0 ask-btn">#}
+{#                <a class="btn btn-outline-success my-2 my-sm-0 ml" href="{% url 'add_question' %}">ASK!</a>#}
+{#            </div>#}
+            {% include "user_block.html" with user_info=user_info%}
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+            {% block content %}{% endblock %}
+        </div>
+        <div class="col-md-3 offset-md-1">
+            {% include "popular_tags.html" with tags=popular_tags only %}
+            {% include "best_members.html" with members=best_members only %}
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Empty footer for ASK</span>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="{% static 'js/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.js/dist/umd/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap/dist/js/bootstrap.js' %}"></script>
+   {% block scripts %}{% endblock %}
+  </body>
+</html>

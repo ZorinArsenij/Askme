@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/log_in.css' %}">
+    <link rel="stylesheet" href="{% static 'css/settings.css'%}">
+{% endblock %}
+{% block title %}Sign up{% endblock %}
+{% block content %}
+    <h3>Sign Up</h3>
+    {% if error %}
+        <p class="error active">{{ error }}</p>
+    {% endif %}
+{#    <form class="log-form mt-2" enctype="multipart/form-data">#}
+{#        <div class="form-group row">#}
+{#            <label for="login" class="col-md-3 col-form-label">Login</label>#}
+{#            <div class="col-md-7">#}
+{#                <input type="text" class="form-control" id="login" placeholder="Enter your login here">#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="form-group row">#}
+{#            <label for="email" class="col-md-3 col-form-label">Email</label>#}
+{#            <div class="col-md-7">#}
+{#                <input type="email" class="form-control" id="email" placeholder="Enter your email here">#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="form-group row">#}
+{#            <label class="col-md-3 col-form-label" for="nickname">Nickname</label>#}
+{#            <div class="col-md-7">#}
+{#                <input type="text" class="form-control" id="nickname" placeholder="Enter your nickname here">#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="form-group row">#}
+{#            <label class="col-md-3 col-form-label" for="password">Password</label>#}
+{#            <div class="col-md-7">#}
+{#                <input type="password" class="form-control" id="password">#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="form-group row">#}
+{#            <label class="col-md-3 col-form-label" for="password-repeat">Repeat password</label>#}
+{#            <div class="col-md-7">#}
+{#                <input type="password" class="form-control" id="password-repeat">#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="form-group row">#}
+{#            <label class="col-md-3 col-form-label" for="user-avatar">Upload avatar</label>#}
+{#            <div class="col-md-7">#}
+{#                <div class="custom-file">#}
+{#                    <input type="file" class="custom-file-input" id="user-avatar" required>#}
+{#                    <label class="custom-file-label" for="user-avatar">Choose file...</label>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="form-group row">#}
+{#            <div class="col-md-7 offset-md-3">#}
+{#                <button type="submit" class="btn btn-primary register">Register</button>#}
+{#            </div>#}
+{#        </div>#}
+{#    </form>#}
+    <form class="log-form mt-2" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+{#        {% if form.errors %}#}
+{#            {% for error in form.non_field_errors %}#}
+{#                <p class="error active">{{ error }}</p>#}
+{#            {% endfor %}#}
+{#        {%  endif %}#}
+        {% if form.errors %}
+            {% for error in form.errors.values %}
+                {% if forloop.first %}
+                    <p class="error active">{{ error|first }}</p>
+                {% endif %}
+            {% endfor %}
+        {%  endif %}
+        {% for field in form %}
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                <div class="col-md-7">
+                    {% if field.label != 'Avatar' %}
+                        {{ field }}
+                    {% else %}
+                        <img class = "user-avatar mb-3" id="avatar-preview" src="/media/user_image/default_user_image.png">
+                        <div class="custom-file">
+                            {{ field }}
+                            <label class="custom-file-label" for="id_avatar">Choose file...</label>
+                        </div>
+                    {% endif %}
+                </div>
+
+            </div>
+        {% endfor %}
+        <div class="form-group row">
+            <div class="col-md-7 offset-md-3">
+                <button type="submit" class="btn btn-primary add-question">Register</button>
+            </div>
+        </div>
+    </form>
+{%  endblock %}
+{% block scripts %}
+    <script src="{% static 'js/forms/avatarPreview.js' %}"></script>
+{% endblock %}

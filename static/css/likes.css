@@ -1,0 +1,60 @@
+.like {
+    font-size: 1.25rem;
+}
+
+.like-icon:hover::before {
+    content: "\f004";
+}
+
+.rating-number {
+    padding-left: 0;
+}
+/*.like {*/
+    /*width: 4rem;*/
+    /*height: 2.5rem;*/
+    /*border: 1px solid #6c757d;*/
+/*}*/
+
+/*.like-buttons i{*/
+    /*width: 1.25rem;*/
+    /*height: 1.25rem;*/
+/*}*/
+
+/*.element-rating {*/
+    /*text-align: center;*/
+/*}*/
+
+/*.like i {*/
+    /*display: block;*/
+    /*height: 1.25rem;*/
+    /*color: #6c757d;*/
+/*}*/
+
+/*.like div {*/
+    /*padding: 0;*/
+/*}*/
+
+/*.like i:hover {*/
+    /*color: black;*/
+/*}*/
+
+/*.small.like {*/
+    /*width: 3rem;*/
+    /*height: 2.1rem;*/
+    /*border: 1px solid #6c757d;*/
+/*}*/
+
+/*.small.like .like-buttons i{*/
+    /*width: 1rem;*/
+    /*height: 1rem;*/
+/*}*/
+
+/*.small.like .element-rating {*/
+    /*text-align: center;*/
+/*}*/
+
+/*.small.like i {*/
+    /*display: block;*/
+    /*height: 2rem;*/
+    /*color: #6c757d;*/
+/*}*/

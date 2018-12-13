@@ -1,0 +1,7 @@
+{% load static %}
+<div class="questions">
+{% for question in questions %}
+    {% include 'question.html' with question=question only%}
+{%  endfor %}
+</div>
+{% include 'pagination.html' with content=questions only %}

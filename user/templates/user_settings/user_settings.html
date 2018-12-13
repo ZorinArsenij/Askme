@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{%  block styles %}
+    <link rel="stylesheet" href="{% static 'css/settings.css' %}">
+    <link rel="stylesheet" href="{% static 'css/log_in.css' %}">
+{% endblock %}
+{% block title %}User settings{% endblock %}
+{% block content %}
+    <h3>Settings: {{ user_info.user.username }}</h3>
+<form class="log-form mt-2" method="post" enctype="multipart/form-data" action="{% url 'user_settings' %}?next={{ next }}">
+    {% csrf_token %}
+    {% if form.errors %}
+        {% for error in form.errors.values %}
+            {% if forloop.first %}
+                <p class="error active">{{ error|first }}</p>
+            {% endif %}
+        {% endfor %}
+    {%  endif %}
+    {% for field in form %}
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+            <div class="col-md-7">
+                {% if field.label != 'Avatar' %}
+                    {{ field }}
+                {% else %}
+                    <img class = "user-avatar mb-3" id="avatar-preview" src="{{ user_info.avatar.url }}">
+                    <div class="custom-file">
+                        {{ field }}
+                        <label class="custom-file-label" for="id_avatar">Choose file...</label>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    <div class="form-group row">
+        <div class="col-md-7 offset-md-3">
+            <button type="submit" class="btn btn-primary save">Save</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'js/forms/avatarPreview.js' %}"></script>
+{% endblock %}

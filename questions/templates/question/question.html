@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/question.css' %}">
+{% endblock %}
+{% block content %}
+     <div class="question media mb-md-4">
+        <div class="align-self-start mr-3">
+            <img src="{{ question.author.avatar.url }}" alt="Generic placeholder image">
+            <div class="row mt-3 justify-content-center">
+                <p>{{ question.author.nickname }}</p>
+            </div>
+            <div class="row like ml-0">
+                 <div class="col-md-4">
+                    <i class="like-icon fa fa-heart-o" data-id="{{ question.pk }}" aria-hidden="true"></i>
+                 </div>
+                <div class="col-md-8 element-rating">
+                    <div class="rating-number">{{ question.likes.get_number_of_likes }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="media-body">
+            <h3 class="mt-0">{{ question.title }}</h3>
+            <p>{{ question.text }}</p>
+            {% if question.tags.all %}
+            <span>Tags:
+                {% for tag in question.tags.all %}
+                    <a href="{{ tag.get_url }}">{{ tag.title }}</a>
+                {% endfor %}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+{#    {% include "question/comments.html" with comments=comments only%}#}
+    {% include "question/comments.html" with comments=comments user_info=user_info %}
+{#    <div class="form-group mt-4">#}
+{#        <div class="mb-md-4">#}
+{#            <textarea class="form-control" id="question-text" rows="7" placeholder="Enter your answer here..."></textarea>#}
+{#        </div>#}
+{#        <div class="form-group ">#}
+{#            <button type="submit" class="btn btn-primary add-question">Answer</button>#}
+{#        </div>#}
+{#    </div>#}
+      <form class="question-form" method="post">
+        {% csrf_token %}
+          {% if form.errors %}
+            {% for error in form.errors.values %}
+                {% if forloop.first %}
+                    <p class="error active">{{ error|first }}</p>
+                {% endif %}
+            {% endfor %}
+        {%  endif %}
+        {% for field in form %}
+            <div class="form-group mt-4">
+                <div class="mb-md-4">
+                    {{ field }}
+                </div>
+            </div>
+        {%  endfor %}
+        <div class="form-group ">
+            <button type="submit" class="btn btn-primary add-question">Answer</button>
+        </div>
+      </form>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'js/like.js' %}"></script>
+{% endblock %}

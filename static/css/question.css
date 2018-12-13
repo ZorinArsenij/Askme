@@ -1,0 +1,48 @@
+.question {
+    padding: 1.5rem 1rem 2rem;
+    border-bottom: 1px solid #6c757d;;
+}
+
+.question img{
+    width: 5rem;
+    height: 5rem;
+}
+
+.question .align-self-start img, .incremental-input {
+    display: block;
+}
+
+.question input {
+    position: relative;
+    margin-top: 1rem;
+    width: 2.5rem;
+}
+
+.question h5 {
+    margin-top: 0;
+}
+
+.comment {
+    padding: 1.5rem 1rem 2rem;
+    border: 1px solid #6c757d;
+    border-radius: 0.25rem;
+}
+
+.comment img{
+    width: 5rem;
+    height: 5rem;
+}
+
+.comment .align-self-start img, .incremental-input {
+    display: block;
+}
+
+.comment input.rating {
+    position: relative;
+    margin-top: 1rem;
+    width: 2.5rem;
+}
+
+.comments {
+    border-bottom: 1px solid #6c757d;
+}
