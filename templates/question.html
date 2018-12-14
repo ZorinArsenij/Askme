@@ -10,7 +10,7 @@
                  <i class="like-icon fa fa-heart-o" data-id="{{ question.pk }}" aria-hidden="true"></i>
             </div>
             <div class="col-md-8 element-rating">
-                <div class="rating-number">{{ question.likes.get_number_of_likes }}</div>
+                <div class="rating-number question-id-{{ question.pk }}">{{ question.likes.get_number_of_likes }}</div>
             </div>
         </div>
     </div>
