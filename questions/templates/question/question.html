@@ -15,7 +15,7 @@
                     <i class="like-icon fa fa-heart-o" data-id="{{ question.pk }}" aria-hidden="true"></i>
                  </div>
                 <div class="col-md-8 element-rating">
-                    <div class="rating-number">{{ question.likes.get_number_of_likes }}</div>
+                    <div class="rating-number question-id-{{ question.pk }}">{{ question.likes.get_number_of_likes }}</div>
                 </div>
             </div>
         </div>
@@ -31,16 +31,7 @@
             {% endif %}
         </div>
     </div>
-{#    {% include "question/comments.html" with comments=comments only%}#}
     {% include "question/comments.html" with comments=comments user_info=user_info %}
-{#    <div class="form-group mt-4">#}
-{#        <div class="mb-md-4">#}
-{#            <textarea class="form-control" id="question-text" rows="7" placeholder="Enter your answer here..."></textarea>#}
-{#        </div>#}
-{#        <div class="form-group ">#}
-{#            <button type="submit" class="btn btn-primary add-question">Answer</button>#}
-{#        </div>#}
-{#    </div>#}
       <form class="question-form" method="post">
         {% csrf_token %}
           {% if form.errors %}
