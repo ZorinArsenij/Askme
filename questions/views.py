@@ -180,19 +180,6 @@ class LikeView(View):
                 "like": like.state
             })
         else:
-            # new_like = Like()
-            # new_like.user = Profile.objects.get(user=request.user)
-            # if like_type == "Comment":
-            #     object = Comment.objects.get(pk=pk)
-            #     new_like.content_object = object
-            #     new_like.content_type = ContentType.objects.get_for_model(object)
-            # elif like_type == "Question":
-            #     object = Question.objects.get(pk=pk)
-            #     new_like.content_object = object
-            #     new_like.content_type = ContentType.objects.get_for_model(object)
-            # new_like.object_id = pk
-            # new_like.state = True
-            # new_like.save()
             profile = Profile.objects.get(user=request.user)
             if like_type == "Comment":
                 object = Comment.objects.get(pk=pk)
@@ -211,18 +198,6 @@ class LikeView(View):
             return JsonResponse({
                 "like": True
             })
-
-    # def post(self, request, pk):
-    #     if request.GET.get("type", "") == "comment":
-    #         if
-    #         new_like = Like()
-    #         new_like.user = request.user
-    #         new_like.content_type = comment_type
-    #         new_like.object_id = comment_id
-    #         new_like.state = True
-    #         new_like.save()
-    #         update_like = like.first()
-    #         update_like.state = True
 
     def get_like(self, request, pk, like_type):
         profile = Profile.objects.get(user=request.user)
