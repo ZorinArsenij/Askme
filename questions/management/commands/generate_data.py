@@ -20,9 +20,9 @@ def add_users(n):
     for i in range(n):
         fake_profile = fakegen.simple_profile()
         fake_password = fakegen.iban()
-        user = User.objects.get_or_create(username=fake_profile['username'], password=fake_password, email=fake_profile['mail'])[0]
+        user = User.objects.get_or_create(username=fake_profile['username'][0:8], password=fake_password, email=fake_profile['mail'])[0]
         user.save()
-        profile = Profile.objects.get_or_create(nickname=fake_profile['username'], avatar='uploads/2018/12/04/' + str(random.choice(list(range(1, 37)))) + '.png', user=user)[0]
+        profile = Profile.objects.get_or_create(nickname=fake_profile['username'][0:8], avatar='uploads/2018/12/04/' + str(random.choice(list(range(1, 37)))) + '.png', user=user)[0]
         profile.save()
 
 
