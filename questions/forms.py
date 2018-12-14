@@ -60,6 +60,8 @@ class CommentCreateForm(ModelForm):
     def __init__(self, *args, **kwargs):
         self.author = kwargs.pop("author", None)
         self.question = kwargs.pop("question", None )
+        if kwargs.get("instance", None):
+            kwargs["instance"].text = ""
         super(CommentCreateForm, self).__init__(*args, **kwargs)
 
     def save(self, commit=True):
