@@ -108,7 +108,7 @@ $(document).ready(function () {
    $(".comment .like-icon").on("click", function () {
        var $this = $(this);
        $.ajax({
-           url: "/like_comment/" + $this.data("comment_id"),
+           url: "/like_comment/" + $this.data("id"),
            method: "POST",
            dataType: "json",
            data: {
@@ -116,13 +116,16 @@ $(document).ready(function () {
                 "csrfmiddlewaretoken": getCookie("csrftoken")
            }
        }).done(function(data) {
+           var rating = $(".comment-id-" + $this.data("id"));
             if (data["like"]) {
                 $this.removeClass("fa-heart-o");
                 $this.addClass("fa-heart");
+                rating.text(parseInt(rating.text())+1);
             } else {
                 console.log("join 4");
                 $this.removeClass("fa-heart");
                 $this.addClass("fa-heart-o");
+                rating.text(parseInt(rating.text())-1);
             }
         });
    });
@@ -132,7 +135,7 @@ $(document).ready(function() {
     $(".question .like-icon").on("click", function() {
         var $this = $(this);
         $.ajax({
-            url: "/like_comment/" + $this.data("id"),
+            url: "/like_question/" + $this.data("id"),
             method: "POST",
             dataType: "json",
             data: {
@@ -140,12 +143,15 @@ $(document).ready(function() {
                 "csrfmiddlewaretoken": getCookie("csrftoken")
             }
         }).done(function(data) {
+            var rating = $(".question-id-" + $this.data("id"));
             if (data["like"]) {
                 $this.removeClass("fa-heart-o");
                 $this.addClass("fa-heart");
+                rating.text(parseInt(rating.text())+1);
             } else {
                 $this.removeClass("fa-heart");
                 $this.addClass("fa-heart-o");
+                rating.text(parseInt(rating.text())-1);
             }
         });
     });
@@ -155,7 +161,7 @@ $(document).ready(function() {
     $(".question-item .like-icon").on("click", function() {
         var $this = $(this);
         $.ajax({
-            url: "/like_comment/" + $this.data("id"),
+            url: "/like_question/" + $this.data("id"),
             method: "POST",
             dataType: "json",
             data: {
@@ -163,12 +169,15 @@ $(document).ready(function() {
                  "csrfmiddlewaretoken": getCookie("csrftoken")
             }
         }).done(function(data) {
+            var rating = $(".question-id-" + $this.data("id"));
             if (data["like"]) {
                 $this.removeClass("fa-heart-o");
                 $this.addClass("fa-heart");
+                rating.text(parseInt(rating.text())+1);
             } else {
                 $this.removeClass("fa-heart");
                 $this.addClass("fa-heart-o");
+                rating.text(parseInt(rating.text())-1);
             }
         });
     });
